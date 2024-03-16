@@ -1,7 +1,11 @@
-<<<<<<< HEAD
+from modules.input_letters import input_letras
+
 def regra_simples():
+    greatness = []
+    initial_value = []
+    final_value = []
 
-=======
-#from modules.get_input import valida_numero
+    great_one = input_letras('Digite a primeira grandeza: ')
+    great_two = input_letras('Digite a segunda grandeza: ')
 
->>>>>>> cbb26ae101ce3650c288d83c69b13de24dc2a880
+regra_simples()
