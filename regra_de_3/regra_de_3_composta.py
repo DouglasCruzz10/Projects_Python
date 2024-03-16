@@ -1,4 +1,4 @@
-#from modules.get_input import valida_numero
+from modules.get_input import valida_numero
 
 def regra_de_3_composta():
     names_greatness_list = []
