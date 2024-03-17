@@ -31,8 +31,18 @@ def regra_de_3_composta():
             greatness_qtd_int = int(greatness_qtd_str)
             break
 
+    # um loop for que se repetirá de acordo com a quantidade de grandezas escolhidas
     for i in range(0, greatness_qtd_int):
+        # faz o usuário digitar o nome das grandezas de acordo com o número de grandezas que ele escolheu
         print(f'Digite o nome da {i+1}º grandeza:', end=' ')
         names_greatness_list.append(input())
-    print(names_greatness_list)
+
+        # insere o valor inicial da grandeza na lista
+        print(f'Digite o valor inicial da grandeza {names_greatness_list[i]}:', end=' ')
+        startvalue_greatness_list.append(input())
+
+        # insere o valor final da grandeza na lista
+        print(f'Digite o valor final da grandeza {names_greatness_list[i]}:', end=' ')
+        finalvalue_greatness_list.append(input())
+
 regra_de_3_composta()
