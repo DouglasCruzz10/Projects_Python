@@ -3,32 +3,33 @@ from modules.get_input import valida_numero
 import os
 def regra_simples():
     greatness = []
-    values_initial = []
-    values_final = []
-
     great_one = input_letras('Digite a primeira grandeza: ')
     great_two = input_letras('Digite a segunda grandeza: ')
 
+    # Aqui é um pop-up para o usuário confirmar se as grandezas foram inseridas corretamente
     pop_up = ['S', 'N']
     confirm = input_letras(f'{great_one}, {great_two}: Deseja confirmar: [S/N]> ').upper()
-    
     while True:
         if confirm not in pop_up:
             confirm = input_letras(f'{great_one}, {great_two}: Deseja confirmar: [S/N]> ').upper()
         else:
             break
-    
-    
+
     while True:
         if confirm == 'S':
             greatss =  [great_one, great_two]
             greatness.append(greatss)
             break
-        else:
+        elif confirm == 'N':
+            os.system("cls")
             great_one = input_letras('Digite a primeira grandeza: ')
             great_two = input_letras('Digite a segunda grandeza: ')
             confirm = input_letras(f'{great_one}, {great_two}: Deseja confirmar: [S/N]> ').upper()
-    print(f'Grandeza1: {great_one} \n Grandeza2: {great_two}')
+    
+    os.system('cls')
+    print(f' Grandeza 1: {great_one} \n Grandeza 2: {great_two}')
+   
+   # Aqui iremos perguntar ao usuário onde o X da regra se localiza
     msg = '''
 
     [1]Valor inicial da primeira grandeza = X
@@ -37,59 +38,67 @@ def regra_simples():
     [4]Valor final da segunda grandeza = X
     '''
     print(msg)
-    
-    try:
-        user = int(input('Digite a opção que deseja: '))
-    except ValueError:
-        user = int(input('erro!! Digite a opção que deseja: '))
+    while True:
+        try:
+            user = int(input('Digite a opção que deseja: '))
+            break
+        except ValueError:
+            print('Escolha corretamente!! [1:2:3:4]')
 
     match user:
         case 1:
             V1G1 = 'X'
-            V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
-            V2G1 = int(input('Digite o valor final da primeira grandeza: '))
-            V2G2 = int(input('Digite o valor final da segunda grandeza: '))
-            Value_one = V1G1,V1G2
-            Value_two = V2G1,V2G2
-            values_initial.append(Value_one)
-            values_final.append(Value_two)
+            while True:   
+                try:
+                    V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
+                    V2G1 = int(input('Digite o valor final da primeira grandeza: '))
+                    V2G2 = int(input('Digite o valor final da segunda grandeza: '))
+                except ValueError:
+                    print("Digite apenas números inteiros!")
+
     
         case 2:
-            V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
             V1G2 = 'X'
-            V2G1 = int(input('Digite o valor final da primeira grandeza: '))
-            V2G2 = int(input('Digite o valor final da segunda grandeza: '))
-            Value_one = V1G1,V1G2
-            Value_two = V2G1,V2G2
-            values_initial.append(Value_one)
-            values_final.append(Value_two)
-        
+            while True:
+                try:
+                    V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
+                    V2G1 = int(input('Digite o valor final da primeira grandeza: '))
+                    V2G2 = int(input('Digite o valor final da segunda grandeza: '))
+                    break
+                except ValueError:
+                    print("Digite apenas números inteiros!!")
         case 3:
-            V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
-            V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
             V2G1 = 'X'
-            V2G2 = int(input('Digite o valor final da segunda grandeza: '))
-            Value_one = V1G1,V1G2
-            Value_two = V2G1,V2G2
-            values_initial.append(Value_one)
-            values_final.append(Value_two)
+            while True:
+                try:
+                    V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
+                    V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
+                    V2G2 = int(input('Digite o valor final da segunda grandeza: '))
+                    break
+                except ValueError:
+                    print("Digite apenas números inteiros")
     
         case 4:
-            V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
-            V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
-            V2G1 = int(input('Digite o valor final da primeira grandeza: '))
             V2G2 = 'X'
-            Value_one = V1G1,V1G2
-            Value_two = V2G1,V2G2
-            values_initial.append(Value_one)
-            values_final.append(Value_two)
-    print(values_initial, values_final)
-    
+            while True:
+                try:
+                    V1G1 = int(input('Digite o valor inicial da primeira grandeza: '))
+                    V1G2 = int(input('Digite o valor inicial da segunda grandeza: '))
+                    V2G1 = int(input('Digite o valor final da primeira grandeza: '))
+                    break
+                except ValueError:
+                    print("Digite apenas números inteiros!!")
+           
     # Pedir pro usuário informar se é a regra é diretamente ou inversamente proporcional.
-    try:
-        user = input('Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
-    except ValueError:
-        user = input('Error!! Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
+    while True:
+            user = input('Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
+            if (user == 'D') or (user =='I'):
+                break
+            elif (user != 'D') or (user != 'I'):
+                print("Digite corretamente")
+    
+    os.system('cls')      
+    
     match user:
         case 'D':
             if (V1G1 == 'X'):
