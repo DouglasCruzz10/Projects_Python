@@ -1,5 +1,6 @@
 from modules.input_letters import input_letras
 from modules.get_input import valida_numero
+import os
 def regra_simples():
     greatness = []
     values_initial = []
@@ -85,34 +86,36 @@ def regra_simples():
     print(values_initial, values_final)
     
     # Pedir pro usuário informar se é a regra é diretamente ou inversamente proporcional.
-    user = input('Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
-    input_letras(user)
+    try:
+        user = input('Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
+    except ValueError:
+        user = input('Error!! Digite se as grandezas são diretamente [D] ou inversamente [I] proporcionais: ').upper()
     match user:
         case 'D':
             if (V1G1 == 'X'):
                 result = (V1G2 * V2G1)/V2G2
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_one}')
             elif (V2G1 == 'X'):
                 result = (V1G1 * V2G2)/V1G2
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_one}')
             elif (V1G2 == 'X'):
                 result = (V1G1 * V2G2)/V2G1
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_two}')
             elif (V2G2 == 'X') :
                 result = (V1G2 * V2G1)/V1G1
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_two}')
     
         case'I':
             if (V1G1 == 'X'):
                 result = (V2G1 * V2G2)/V1G2
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_one}')
             elif (V2G1 == 'X'):
                 result = (V1G1 * V1G2)/V2G2
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f}v{great_one}')
             elif (V1G2 == 'X'):
                 result = (V2G1 * V2G2)/V1G1
-                print(f'X = {result:.2f}')
+                print(f'X = {result:.2f} {great_two}')
             elif (V2G2 == 'X') :
                 result = (V1G1 * V1G2)/V2G1
-                print(f'X = {result:.2f}')    
+                print(f'X = {result:.2f} {great_two}')    
         
