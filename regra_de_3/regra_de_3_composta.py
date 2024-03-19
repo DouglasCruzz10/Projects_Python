@@ -44,5 +44,3 @@ def regra_de_3_composta():
         # insere o valor final da grandeza na lista
         print(f'Digite o valor final da grandeza {names_greatness_list[i]}:', end=' ')
         finalvalue_greatness_list.append(input())
-
-regra_de_3_composta()
