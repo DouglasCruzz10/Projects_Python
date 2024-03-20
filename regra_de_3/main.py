@@ -8,11 +8,13 @@ def main():
 [2] - Para regra de 3 composta
 '''
     print(msg)
-    try:
-        user = int(input('Digite a opção que deseja: '))
-    except ValueError:
-        while True:
-            user = int(input('Errooo!! Digite a opção que deseja: '))
+    
+    while True:   
+        try:
+            user = int(input('Digite a opção que deseja: '))
+            break
+        except ValueError:
+            print('Por favor ! Digite a opção corretamente [1/2]')
  
     match user:
         case 1:
