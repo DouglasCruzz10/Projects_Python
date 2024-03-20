@@ -8,14 +8,14 @@ def main():
 [2] - Para regra de 3 composta
 '''
     print(msg)
-    
+
     while True:   
         try:
             user = int(input('Digite a opção que deseja: '))
             break
         except ValueError:
             print('Por favor ! Digite a opção corretamente [1/2]')
- 
+    
     match user:
         case 1:
             regra_simples()
