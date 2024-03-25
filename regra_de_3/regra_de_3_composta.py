@@ -58,11 +58,6 @@ def regra_de_3_composta():
             else:
                 break
 
-<<<<<<< HEAD
-        # insere o valor final da grandeza na lista
-        print(f'Digite o valor final da grandeza {names_greatness_list[i]}:', end=' ')
-        finalvalue_greatness_list.append(input())
-=======
         # irá verificar se o valor da variável é x, se minúsculo converte pra maiúscula, depois adiciona na lista.
         if startvalue_greatness == 'x':
             startvalue_greatness = startvalue_greatness.upper()
@@ -143,6 +138,7 @@ def regra_de_3_composta():
     product = input(f'Quais dessas grandezas {names_greatness_list} é o produto? [DIGITE DA MESMA FORMA] :')
 
     # retorna -1 para a variavel indice do produto caso o valor de produto não esteja na lista de grandezas
+    # CORRIGIR ESTA LINHA, POIS ESTÁ CAUSANDO ERRO.
     try:
         index_of_product = names_greatness_list.index(product)
     except ValueError:
@@ -194,4 +190,3 @@ def regra_de_3_composta():
         result = multiplication_startvalues / multiplication_finalvalues
 
     print(f'O valor de "X" é: {result:.2f} {names_greatness_list[index_of_x]}')
->>>>>>> ca4b086e3562ab3eac0a5703be1200de693d9847
