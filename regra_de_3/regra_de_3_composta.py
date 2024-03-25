@@ -34,7 +34,7 @@ def regra_de_3_composta():
             break
     
     print('Quando for determinar a incognita use "X" !')
-
+    X_store = False # variável irá me dizer se o valor X já foi designado
     # um loop for que se repetirá de acordo com a quantidade de grandezas escolhidas
     for i in range(0, greatness_qtd_int):
         # faz o usuário digitar o nome das grandezas de acordo com o número de grandezas que ele escolheu
@@ -43,26 +43,13 @@ def regra_de_3_composta():
 
         # insere o valor inicial da grandeza numa variável
         startvalue_greatness = input(f'Digite o valor inicial da grandeza {names_greatness_list[i]}: ')
-        
-        # se o valor digitado for x minusculo transforma-o em maiuscúlo
-        if startvalue_greatness == 'x':
-            startvalue_greatness = startvalue_greatness.upper()
-
-        # irá verificar se já existe X dentro das listas de valor, se sim o bota num loop que só quebra quando ele digita um
-        # valor númerico.
-        while True:
-            if (has_x(startvalue_greatness_list) or has_x(finalvalue_greatness_list)) and startvalue_greatness == 'X':
-                startvalue_greatness = input('ERRO! incógnita "X" já foi definida, Digite novamente: ')
-                if startvalue_greatness == 'x':
-                    startvalue_greatness = startvalue_greatness.upper()
-            else:
-                break
 
         # irá verificar se o valor da variável é x, se minúsculo converte pra maiúscula, depois adiciona na lista.
         if startvalue_greatness == 'x':
             startvalue_greatness = startvalue_greatness.upper()
         if startvalue_greatness == 'X':
             startvalue_greatness_list.append(startvalue_greatness)
+        
         # se o valor conter qualquer letra que não seja o "X" faz com que o usuário caia num loop até que digite corretamente
         # um valor numerico.
         elif not valida_numero(startvalue_greatness):
@@ -70,16 +57,6 @@ def regra_de_3_composta():
                 startvalue_greatness = input('ERRO! Digite apenas números ou "X"!: ')
                 if startvalue_greatness == 'x':
                     startvalue_greatness = startvalue_greatness.upper()
-
-                    # irá verificar se já existe X dentro das listas de valor, se sim o bota num loop que só quebra quando ele digita um
-                    # valor númerico.
-                    while True:
-                        if (has_x(startvalue_greatness_list) or has_x(finalvalue_greatness_list)) and startvalue_greatness == 'X':
-                            startvalue_greatness = input('ERRO! incógnita "X" já foi definida, Digite novamente: ')
-                            if startvalue_greatness == 'x':
-                                startvalue_greatness = startvalue_greatness.upper()
-                        else:
-                            break
                     break
                 if valida_numero(startvalue_greatness) and startvalue_greatness != 'X':
                     break
@@ -90,24 +67,12 @@ def regra_de_3_composta():
         # insere o valor final da grandeza numa variável
         finalvalue_greatness = input(f'Digite o valor final da grandeza {names_greatness_list[i]}: ')
 
-        if finalvalue_greatness == 'x':
-            finalvalue_greatness = finalvalue_greatness.upper()
-
-        # irá verificar se já existe X dentro das listas de valor, se sim o bota num loop que só quebra quando ele digita um
-        # valor númerico.
-        while True:
-            if (has_x(startvalue_greatness_list) or has_x(finalvalue_greatness_list)) and finalvalue_greatness == 'X':
-                finalvalue_greatness = input('ERRO! incógnita "X" já foi definida, Digite novamente: ')
-                if finalvalue_greatness == 'x':
-                    finalvalue_greatness = finalvalue_greatness.upper()
-            else:
-                break
-
         # irá verificar se o valor da variável é x, se minúsculo converte pra maiúscula, depois adiciona na lista.
         if finalvalue_greatness == 'x':
             finalvalue_greatness = finalvalue_greatness.upper()
         if finalvalue_greatness == 'X':
             finalvalue_greatness_list.append(finalvalue_greatness)
+        
         # se o valor conter qualquer letra que não seja o "X" faz com que o usuário caia num loop até que digite corretamente
         # um valor numerico.    
         elif not valida_numero(finalvalue_greatness):
@@ -115,16 +80,6 @@ def regra_de_3_composta():
                 finalvalue_greatness = input('ERRO! Digite apenas números ou "X"!: ')
                 if finalvalue_greatness == 'x':
                     finalvalue_greatness = finalvalue_greatness.upper()
-
-                    # irá verificar se já existe X dentro das listas de valor, se sim o bota num loop que só quebra quando ele digita um
-                    # valor númerico.
-                    while True:
-                        if (has_x(startvalue_greatness_list) or has_x(finalvalue_greatness_list)) and finalvalue_greatness == 'X':
-                            finalvalue_greatness = input('ERRO! incógnita "X" já foi definida, Digite novamente: ')
-                            if finalvalue_greatness == 'x':
-                                finalvalue_greatness = finalvalue_greatness.upper()
-                        else:
-                            break
                     break
                 if valida_numero(finalvalue_greatness) and finalvalue_greatness != 'X':
                     break
